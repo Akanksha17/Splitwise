@@ -18,5 +18,8 @@ def create_expense(payer_id, amount, user_ids, split_type, rem_input, splitwise_
         }
     expense_obj = expense_model.Expense(payer[0], amount, split_obj)
     splitwise_instance.set_expense(expense_obj)
-    return splitwise_instance
+    return {
+        'success_msg': 'Successfully added expense',
+        'updated_splitwise_instance': splitwise_instance
+    }
 

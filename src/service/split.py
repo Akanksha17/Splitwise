@@ -1,5 +1,5 @@
 from src.constants import split_type as split_type_constant, output_messages
-from src.helper import divide_amount_in_equal_share, divide_amount_by_percent_share
+from src.helper import share as share_helper
 from src.model import split as split_model
 from src.validation import is_exact_share_valid, is_percent_share_valid
 
@@ -18,7 +18,7 @@ def create_equal_split(amount, split_unit, user_ids):
     split_type = split_type_constant['EQUAL']
     total_amount = amount
     num_users = split_unit[0]
-    share_division = divide_amount_in_equal_share(total_amount, num_users)
+    share_division = share_helper.divide_amount_in_equal_share(total_amount, num_users)
     split_obj = create_split_instance(split_type, user_ids, share_division)
     return split_obj
 
@@ -30,7 +30,7 @@ def create_percent_split(amount, percent_share, user_ids):
         }
     split_type = split_type_constant['PERCENT']
     total_amount = amount
-    share_division = divide_amount_by_percent_share(total_amount, percent_share)
+    share_division = share_helper.divide_amount_by_percent_share(total_amount, percent_share)
     split_obj = create_split_instance(split_type, user_ids, share_division)
     return split_obj
 

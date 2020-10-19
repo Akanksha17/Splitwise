@@ -26,8 +26,9 @@ class TestExpenseService(unittest.TestCase):
         total_amount = 200
         split_type = split_type_constant['EQUAL']
         rem_input = []
-        updated_splitwise = call_expense_service_to_create_expense(
+        result = call_expense_service_to_create_expense(
             payer_id, total_amount, split_type, rem_input)
+        updated_splitwise = result['updated_splitwise_instance']
         expense_list = updated_splitwise.get_expenses()
         self.assertEqual(len(expense_list), 1)
         expense_obj = expense_list[0]
@@ -46,13 +47,14 @@ class TestExpenseService(unittest.TestCase):
         total_amount = 143.13
         split_type = split_type_constant['PERCENT']
         share_input = [20, 30, 20, 30]
-        updated_splitwise = call_expense_service_to_create_expense(
+        result = call_expense_service_to_create_expense(
             payer_id,
             total_amount,
             split_type,
             share_input)
 
-        expense_list = updated_splitwise.get_expenses()
+        updated_splitwise_obj = result['updated_splitwise_instance']
+        expense_list = updated_splitwise_obj.get_expenses()
         self.assertEqual(len(expense_list), 2)
         expense_obj = expense_list[1]
         split_obj = expense_obj.split

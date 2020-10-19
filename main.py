@@ -18,7 +18,9 @@ if __name__ == '__main__':
         print(value, end=', ')
     print('\n')
     user_input = input('Enter command:')
-    result = execute(user_input, splitwise_instance)
+    print('**************', user_input.split(' '))
+    result = execute(user_input.split(' '), splitwise_instance)
+    print('----------', result)
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
