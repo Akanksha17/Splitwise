@@ -8,9 +8,9 @@ user_ids = [1, 2, 3]
 
 
 class TestSplitService(unittest.TestCase):
-    def test_create_split(self):
+    def test_create_split_instance(self):
         share_div = [47.71, 47.71, 47.71]
-        split_obj = split_service.create_split(split_type_constant['EQUAL'], user_ids, share_div)
+        split_obj = split_service.create_split_instance(split_type_constant['EQUAL'], user_ids, share_div)
         self.assertEqual(split_obj.type, split_type_constant['EQUAL'])
         expected_share_map = {
             1: 47.71,
