@@ -12,3 +12,17 @@ def is_action_valid(action):
         return True
     else:
         return False
+
+
+def is_percent_share_valid(share_list, num_users):
+    if len(share_list) != 0 and len(share_list) == num_users and sum(share_list) == 100:
+        return True
+    else:
+        return False
+
+
+def is_exact_share_valid(total, share_list, num_users):
+    if len(share_list) and len(share_list) == num_users and sum(share_list) == total:
+        return True
+    else:
+        return False
