@@ -21,7 +21,7 @@ class TestSplitService(unittest.TestCase):
 
     def test_create_equal_split(self):
         no_of_users = 3
-        split_obj = split_service.create_equal_split(total_amount, no_of_users, user_ids)
+        split_obj = split_service.create_equal_split(total_amount, [no_of_users], user_ids)
         self.assertEqual(split_obj.type, split_type_constant['EQUAL'])
         expected_share_map = {
             1: 47.71,

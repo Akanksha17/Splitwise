@@ -5,10 +5,11 @@ from src.action import execute
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print('Welcome to Splitwise Application', '\n')
-    sample_users = initialise_script.generate_sample_users()
+    splitwise_instance = initialise_script.initialise_app()
+
     print('Available user ids:')
 
-    for user in sample_users:
+    for user in splitwise_instance.users:
         print(user.get_id(), end=', ')
     print('\n')
     print('Available commands:')
@@ -17,7 +18,7 @@ if __name__ == '__main__':
         print(value, end=', ')
     print('\n')
     user_input = input('Enter command:')
-    result = execute(user_input, sample_users)
+    result = execute(user_input, splitwise_instance)
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

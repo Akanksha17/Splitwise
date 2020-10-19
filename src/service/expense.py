@@ -3,7 +3,8 @@ from src.service import split as split_service
 from src.constants import output_messages
 
 
-def create_expense(payer_id, amount, user_ids, split_type, rem_input, sample_users):
+def create_expense(payer_id, amount, user_ids, split_type, rem_input, splitwise_instance):
+    sample_users = splitwise_instance.users
     if len(rem_input) > 0:
         share_unit = rem_input[0:]
     else:
@@ -16,4 +17,6 @@ def create_expense(payer_id, amount, user_ids, split_type, rem_input, sample_use
             'err_msg': output_messages['INVALID_USER_ID']
         }
     expense_obj = expense_model.Expense(payer[0], amount, split_obj)
-    return expense_obj
+    splitwise_instance.set_expense(expense_obj)
+    return splitwise_instance
+
