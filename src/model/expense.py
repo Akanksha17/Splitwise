@@ -1,9 +1,8 @@
 
 class Expense:
-    def __init__(self, name, user, amount, split):
-        self.name = name
+    def __init__(self, user, amount, split):
         self.amount = amount
-        self.user = user
+        self.payer = user
         self.split = split
 
 
