@@ -3,10 +3,10 @@ from src.model import user as user_model, splitwise as splitwise_model
 
 
 def generate_sample_users():
-    generated_users = []
+    generated_users = {}
     for user in test_users:
         test_user = user_model.User(user['name'], user['email'], user['phone_number'])
-        generated_users.append(test_user)
+        generated_users[test_user.get_id()] = test_user
     return generated_users
 
 

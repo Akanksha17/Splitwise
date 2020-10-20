@@ -9,18 +9,21 @@ if __name__ == '__main__':
 
     print('Available user ids:')
 
-    for user in splitwise_instance.users:
-        print(user.get_id(), end=', ')
+    print(list(splitwise_instance.users.keys()))
     print('\n')
     print('Available commands:')
 
     for key, value in valid_actions.items():
         print(value, end=', ')
     print('\n')
-    user_input = input('Enter command:')
-    print('**************', user_input.split(' '))
-    result = execute(user_input.split(' '), splitwise_instance)
-    print('----------', result)
+    print('type EXIT to stop the application')
+    while True:
+        user_input = input('Enter command:')
+        if user_input.upper() == valid_actions['EXIT']:
+            break
+        result = execute(user_input.split(' '), splitwise_instance)
+        print(result)
+
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

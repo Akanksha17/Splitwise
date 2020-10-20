@@ -7,7 +7,8 @@ split_type = {
 
 valid_actions = {
     'ADD_EXPENSE': 'ADD_EXPENSE',
-    'SETTLE_UP': 'SETTLE_UP'
+    'SETTLE_UP': 'SETTLE_UP',
+    'EXIT': 'EXIT'
 }
 
 output_messages = {
